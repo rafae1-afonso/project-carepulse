@@ -58,7 +58,7 @@ const AppointmentForm = ({ userId, patientId, type }: {
         }
         setIsLoading(false);
     }
-
+    
     let buttonLabel;
 
     switch (type) {

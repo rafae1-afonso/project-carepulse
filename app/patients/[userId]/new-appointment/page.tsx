@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button"
-import Link from "next/link";
 import AppointmentForm from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actions";
 
 
-export default async function NewAppointment({ params: { userId }}: SearchParamProps) {
+export default async function NewAppointment({ params: { userId } }: SearchParamProps) {
   const patient = await getPatient(userId);
+  
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">

@@ -4,8 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+import * as Sentry from '@sentry/nextjs';
+
 const Register = async ({ params: { userId } }: SearchParamProps) => {
   const user = await getUser(userId);
+
+  Sentry.metrics.set("user_view_register", user.name);
 
   return (
     <div className="flex h-screen max-h-screen">
@@ -19,7 +23,7 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
             className="mb-12 h-10 w-fit"
           />
 
-          <RegisterForm user={user}/>
+          <RegisterForm user={user} />
 
           <p className="copyright py-12">
             &copy; 2024 CarePulse
